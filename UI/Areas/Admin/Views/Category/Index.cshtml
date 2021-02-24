@@ -1,0 +1,55 @@
+﻿@model List<Category>
+@{
+    ViewBag.Title = "Kategori";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>@ViewBag.Title</h5>
+            </div>
+            <div class="col-md-6 text-right">
+                @Html.ActionLink("Kategori Ekle", "Create", null, new { @class="btn btn-sm btn-success "})
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover" id="myTable">
+            <thead>
+                <tr>
+                    <th>Kategori Adı</th>
+                    <th>Açıklama</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Count > 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.CategoryName</td>
+                            <td>@item.Description</td>
+                            <td>
+                                @Html.ActionLink("Düzenle", "Edit", new { id=item.ID}, new { @class = "btn btn-sm btn-warning" })
+                                @Html.ActionLink("Sil", "Delete", new { id = item.ID }, new { @class = "btn btn-sm btn-danger" })
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr class="text-center">
+                        <td colspan="2">
+                            <strong>Herhangi bir veri mevcut değil!</strong>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

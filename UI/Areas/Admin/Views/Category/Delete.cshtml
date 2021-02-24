@@ -1,0 +1,25 @@
+﻿@model Category
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <div class="container">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>@Model.CategoryName</h5>
+                </div>
+                <div class="card-body">
+                    <h5>Kategoriyi silmek istiyor musunuz?</h5>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-danger">Evet</button>
+                    @Html.ActionLink("İptal","Index")
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

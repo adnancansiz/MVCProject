@@ -1,0 +1,42 @@
+﻿@model SubCategory
+@{
+    ViewBag.Title = "Alt Kategori Ekle";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>@ViewBag.Title</h5>
+            </div>
+            <div class="col-md-6 text-right">
+                @Html.ActionLink("<<Geri", "Index", null, new { @class = "btn btn-sm btn-primary " })
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <div class="container">
+                <div class="form-group">
+                    <label>Kategori Adı</label>
+                    @Html.TextBoxFor(x =>x.SubCategoryName , new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Açıklama</label>
+                    @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                   @*@Html.DropDownList("Categories","Kategori Seçin")*@
+                    <select class="form-control" name="CategoryId">
+                        @foreach (var category in ViewBag.Categories as List<Category>)
+                        {
+                            <option value="@category.ID">@category.CategoryName</option>
+                        }
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success">Ekle</button>
+            </div>
+        </form>
+    </div>
+</div>

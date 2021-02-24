@@ -1,0 +1,24 @@
+﻿@model List<Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table>
+    <tr>
+        <th>Görsel</th>
+        <th>Ürün Ad</th>
+    </tr>
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td>
+                <img src="~/Content/images/products/@product.ImagePath" width="150" height="150" />
+            </td>
+            <td>
+                @product.ProductName
+            </td>
+        </tr>
+    }
+</table>
+

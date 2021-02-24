@@ -1,0 +1,49 @@
+﻿@model Product
+@{
+    ViewBag.Title = "Ürün Ekle";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-6">
+                <h5>@ViewBag.Title</h5>
+            </div>
+            <div class="col-md-6 text-right">
+                @Html.ActionLink("<<Geri", "Index", null, new { @class = "btn btn-sm btn-primary " })
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            <div class="container">
+                <div class="form-group">
+                    <label>Ürün Adı</label>
+                    @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Fiyat</label>
+                    @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Stok</label>
+                    @Html.TextBoxFor(x => x.UnitsInStock, new { @class = "form-control" })
+                </div>
+                <select name="SubCategoryId">
+                    @foreach (var item in ViewBag.SubCategories)
+                    {
+                        <option value="@item.ID">@item.SubCategoryName</option>
+                    }
+                </select>
+                <div class="form-group">
+                    <input type="file" name="ProductImage" />
+                </div>
+
+                <button type="submit" class="btn btn-success">Ekle</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
