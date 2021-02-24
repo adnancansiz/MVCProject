@@ -139,11 +139,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CategorysController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoryUpdateVM.cs" />
+    <Compile Include="Models\CategoryVM.cs" />
     <Compile Include="Models\ProductsCrudVM.cs" />
     <Compile Include="Models\ProductsListVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
